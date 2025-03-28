@@ -1,74 +1,337 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>學樂遊</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <header>
-            <h1>STUDY TOUR</h1>
-            <nav>
-                <ul>
-                    <li><a href="#">收藏</a></li>
-                    <li><a href="#">購物車</a></li>
-                    <li><a href="login.html">登入/註冊</a></li>
-                    <li><a href="#" class="menu">&#9776;</a></li>
-                </ul>
-            </nav>
-        </header>
-        <main>
-            <section class="where">
-            </section>
-            <section class="us">
-            <h2>關於我們 About us</h2>
-            </section>
 
-            <section class="new">
-                <h2>最新消息 The news</h2>
-            </section>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>學樂遊</title>
+  <link rel="stylesheet" href="style.css">
+</head>
 
-            <section class="re">
-                <h2>人氣活動推薦 Recommend</h2>
-                    <div class="card-container">
-                        <div class="card">
-                            <img src="images/japan.jpg" alt="北海道滑雪三日遊">
-                            <h3>北海道滑雪三日遊</h3>
-                            <p>▼ 雪飄幣</p>
-                            <p class="price">NT$15000 起</p>
-                            <a href="#" class="button">加入購物車</a>
-                            <p class="coin">會員加碼獲得區區幣 6 枚</p>
-                        </div>
-                        <div class="card">
-                            <img src="images/Namsan.jpg" alt="韓國釜山溫泉七日遊">
-                            <h3>韓國釜山溫泉七日遊</h3>
-                            <p>▼ 湯泉幣</p>
-                            <p class="price">NT$32000 起</p>
-                            <a href="#" class="button">加入購物車</a>
-                            <p class="coin">會員加碼獲得區區幣 14 枚</p>
-                        </div>
-                        <div class="card">
-                            <img src="images/tokyo.jpg" alt="日本東京賞櫻五日遊">
-                            <h3>日本東京賞櫻五日遊</h3>
-                            <p>▼ 櫻舞幣</p>
-                            <p class="price">NT$26000 起</p>
-                            <a href="#" class="button">加入購物車</a>
-                            <p class="coin">會員加碼獲得區區幣 10 枚</p>
-                        </div>
-                    </div>
-                    <div class="more">
-                        <a href="#" class="button">◎ 查看更多</a>
-                    </div>
-            </section>
-            <section class="letter">
-                <p>歡迎訂閱學樂遊，即時獲得最新旅遊消息</p>
-                <from>
-                    <input type="email" placeholder="請輸入您的Email" required>
-                    <button type="submit">送出</button>
-                </from>
-            </section>
-        </main>
-        <footer>
-            <p>高雄科技大學資訊管理系 @2025 學樂遊 Study tour</p>
-        </footer>
-    </body>
+<body>
+  <header class="navbar">
+    <div class="logo">
+      <img src="images/LOGO.png" alt="logo">
+      <span>Study tour</span>
+    </div>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#">收藏</a>
+      <a href="#">購物車</a>
+      <a href="#">登入/註冊</a>
+    </nav>
+
+    <button class="hamburger" id="hamburger">&#9776;</button>
+  </header>
+
+  <main>
+    <section class="set">
+      <div class="ask">
+        <form>
+          <div class="tab">
+            <button type="button" class="tab-btn active" data-target="abroad">國外</button>
+            <button type="button" class="tab-btn" data-target="domestic">國內</button>
+          </div>
+
+         <!-- 國外區塊 -->
+<div class="form-content abroad active">
+  <div class="form-group">
+    <label>出發地</label>
+    <select>
+      <option>台北</option>
+      <option>高雄</option>
+      <option>台中</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>目的地</label>
+    <select>
+      <option>東京</option>
+      <option>大阪</option>
+      <option>巴黎</option>
+      <option>倫敦</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>選擇日期範圍</label>
+    <div class="date-range">
+      <input type="text" id="start-date-abroad" placeholder="選擇起始日期" readonly />
+      <span>至</span>
+      <input type="text" id="end-date-abroad" placeholder="選擇結束日期" readonly />
+    </div>
+  </div>
+  <div class="form-group">
+    <label>人數/房間數</label>
+    <input type="text" placeholder="2位成人1間客房" />
+  </div>
+  <div class="form-group full-width">
+    <button type="submit">搜尋</button>
+  </div>  
+</div>
+
+<!-- 國內區塊 -->
+<div class="form-content domestic">
+  <div class="form-group">
+    <label>出發地</label>
+    <select>
+      <option>台北</option>
+      <option>台中</option>
+      <option>高雄</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>目的地</label>
+    <select>
+      <option>花蓮</option>
+      <option>台東</option>
+      <option>嘉義</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>選擇日期範圍</label>
+    <div class="date-range">
+      <input type="text" id="start-date-domestic" placeholder="選擇起始日期" readonly />
+      <span>至</span>
+      <input type="text" id="end-date-domestic" placeholder="選擇結束日期" readonly />
+    </div>
+  </div>
+  <div class="form-group">
+    <label>人數/房間數</label>
+    <input type="text" placeholder="2位成人1間客房" />
+  </div>
+  <div class="form-group full-width">
+    <button type="submit">搜尋</button>
+  </div>  
+</div>
+</form>
+</div>
+</section>
+
+    <section class="us">
+      <div class="about">
+        <img src="images/LOGO.png" alt="學樂遊">
+        <div class="about-text">
+          <h2>關於學樂遊</h2>
+          <p>專為學生畢旅服務，最低2人即可成團<br>獨一無二功能型代幣保障您的權益</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="new">
+      <h2 class="section-title news">最新消息 The news</h2>
+      <div class="carousel">
+        <button class="prev">&#10094;</button>
+        <div class="scroll-gallery">
+          <img src="images/熱氣球.jpg" alt="照片1">
+          <img src="images/鐵路.jpg" alt="照片2">
+          <img src="images/海.jpg" alt="照片3">
+          <img src="images/雲海.jpg" alt="照片4">
+        </div>
+        <button class="next">&#10095;</button>
+      </div>
+
+    </section>
+
+    <section class="re">
+      <h2 class="section-title hot">人氣活動推薦 Recommend</h2>
+      <div class="card-container">
+        <div class="card">
+          <img src="images/japan.jpg" alt="北海道滑雪三日遊">
+          <h3>北海道滑雪三日遊</h3>
+          <p>▼ 雪飄幣</p>
+          <p class="price">NT$15000 起</p>
+          <a href="#" class="button">加入購物車</a>
+          <p class="coin">會員加碼獲得區區幣 6 枚</p>
+        </div>
+        <div class="card">
+          <img src="images/Namsan.jpg" alt="韓國釜山溫泉七日遊">
+          <h3>韓國釜山溫泉七日遊</h3>
+          <p>▼ 湯泉幣</p>
+          <p class="price">NT$32000 起</p>
+          <a href="#" class="button">加入購物車</a>
+          <p class="coin">會員加碼獲得區區幣 14 枚</p>
+        </div>
+        <div class="card">
+          <img src="images/tokyo.jpg" alt="日本東京賞櫻五日遊">
+          <h3>日本東京賞櫻五日遊</h3>
+          <p>▼ 櫻舞幣</p>
+          <p class="price">NT$26000 起</p>
+          <a href="#" class="button">加入購物車</a>
+          <p class="coin">會員加碼獲得區區幣 10 枚</p>
+        </div>
+      </div>
+      <div class="more">
+        <a href="#" class="button">◎ 查看更多</a>
+      </div>
+    </section>
+    <section class="letter">
+      <p>歡迎訂閱學樂遊，即時獲得最新旅遊消息</p>
+      <form>
+        <input type="email" placeholder="請輸入您的Email" required>
+        <button type="submit">送出</button>
+      </form>
+    </section>
+  </main>
+  <footer>
+    <p>高雄科技大學資訊管理系 @2025 學樂遊 Study tour</p>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  <script>
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.getElementById("navLinks");
+
+    hamburger.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+    });
+
+    $(function () {
+  // 國外日期選擇器
+  $("#start-date-abroad").datepicker({
+    dateFormat: "yy-mm-dd",
+    minDate: 0,
+    changeMonth: true,
+    changeYear: true,
+  });
+
+  $("#end-date-abroad").datepicker({
+    dateFormat: "yy-mm-dd",
+    minDate: 0,
+    changeMonth: true,
+    changeYear: true,
+    showButtonPanel: true,
+  });
+
+  // 國內日期選擇器
+  $("#start-date-domestic").datepicker({
+    dateFormat: "yy-mm-dd",
+    minDate: 0,
+    changeMonth: true,
+    changeYear: true,
+  });
+
+  $("#end-date-domestic").datepicker({
+    dateFormat: "yy-mm-dd",
+    minDate: 0,
+    changeMonth: true,
+    changeYear: true,
+    showButtonPanel: true,
+  });
+});
+
+$(function () {
+  $.datepicker.setDefaults({
+    prevText: '←',
+    nextText: '→'
+  });
+
+  let startDateInputAbroad = $("#start-date-abroad");
+  let endDateInputAbroad = $("#end-date-abroad");
+  let startDateInputDomestic = $("#start-date-domestic");
+  let endDateInputDomestic = $("#end-date-domestic");
+
+  // 國外起始日選擇器
+  startDateInputAbroad.datepicker({
+    dateFormat: "yy-mm-dd",
+    minDate: 0,
+    changeMonth: true,
+    changeYear: true,
+    showButtonPanel: true,
+    onSelect: function (selectedDate) {
+      let start = $(this).datepicker('getDate');
+      endDateInputAbroad.datepicker("option", "minDate", start); // 結束日不能早於起始日
+    }
+  });
+
+  // 國外結束日選擇器
+  endDateInputAbroad.datepicker({
+    dateFormat: "yy-mm-dd",
+    minDate: 0,
+    changeMonth: true,
+    changeYear: true,
+    showButtonPanel: true,
+    onSelect: function (selectedDate) {
+      let end = $(this).datepicker('getDate');
+      startDateInputAbroad.datepicker("option", "maxDate", end); // 起始日不能晚於結束日
+    }
+  });
+
+  // 國內起始日選擇器
+  startDateInputDomestic.datepicker({
+    dateFormat: "yy-mm-dd",
+    minDate: 0,
+    changeMonth: true,
+    changeYear: true,
+    showButtonPanel: true,
+    onSelect: function (selectedDate) {
+      let start = $(this).datepicker('getDate');
+      endDateInputDomestic.datepicker("option", "minDate", start); // 結束日不能早於起始日
+    }
+  });
+
+  // 國內結束日選擇器
+  endDateInputDomestic.datepicker({
+    dateFormat: "yy-mm-dd",
+    minDate: 0,
+    changeMonth: true,
+    changeYear: true,
+    showButtonPanel: true,
+    onSelect: function (selectedDate) {
+      let end = $(this).datepicker('getDate');
+      startDateInputDomestic.datepicker("option", "maxDate", end); // 起始日不能晚於結束日
+    }
+  });
+});
+
+
+
+    const tabBtns = document.querySelectorAll(".tab-btn");
+    const contentBlocks = document.querySelectorAll(".form-content");
+
+    tabBtns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        tabBtns.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+
+        const target = btn.getAttribute("data-target");
+        contentBlocks.forEach(block => {
+          block.classList.remove("active");
+          if (block.classList.contains(target)) {
+            block.classList.add("active");
+          }
+        });
+      });
+    });
+    const track = document.querySelector('.scroll-gallery');
+    const images = document.querySelectorAll('.scroll-gallery img');
+    const prevBtn = document.querySelector('.prev');
+    const nextBtn = document.querySelector('.next');
+
+    let index = 0;
+
+    function updateCarousel() {
+      const imageWidth = images[0].clientWidth;
+      track.style.transform = `translateX(-${index * imageWidth}px)`;
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (index < images.length - 1) {
+        index++;
+        updateCarousel();
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (index > 0) {
+        index--;
+        updateCarousel();
+      }
+    });
+
+    // 當視窗大小改變時，重新對齊圖片位置
+    window.addEventListener('resize', updateCarousel);
+  </script>
+</body>
+
 </html>

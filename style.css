@@ -1,186 +1,690 @@
-*{
-    padding: 0;
-    margin: 0;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-header{
-    background-color: #f7ebd8;
-    height:80px;
-    width: 100%;
-    position: fixed;
-} 
-.menu{
-    font-size: 20px;
+
+html,
+body {
+  height: 100%;
+  overflow-x: hidden;
 }
-h1{
-    position:absolute;
-    line-height: 80px;
-    color:black;
-    left:60px;
-    top: 0;
-}    
-header ul{
-    position:absolute;
-    right:10px;
-    top:0;
-    line-height: 80px;
+
+/*標題列*/
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+  background-color: #f9dfed;
+  position: sticky;
+  top: 0;
+  z-index: 99;
 }
-header li{
-    display: inline;
-    margin-right: 4vw;
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  /* 圖與文字間距 */
 }
-header a{
-    color:black;
-    text-decoration: none;
+
+.logo img {
+  height: 50px;
+  width: auto;
 }
-header a:hover{
-    text-decoration: underline;
-}
-.where{
-    background-image: url("images/1.png");
-    height: 120vh;
-    background-position: center;
-}
-.us{
-    color:black;
-    height:100vh;
-    background-image: url(images/2.png);
-    background-position: center;
-    display: flex;
+
+@media (max-width: 768px) {
+  .logo {
     justify-content: center;
-    font-size: 20px;
+  }
+
+  .logo span {
+    font-size: 24px;
+  }
 }
-.new{
-    color:black;
-    height:100vh;
-    background-image: url(images/3.png);
-    background-position: center;
-    font-size: 18px;
+
+.nav-links {
+  display: flex;
+  gap: 20px;
 }
-.re{
-    color:black;
-    height:100vh;
-    background-image: url(images/4.png);
-    background-position: center;
-    font-size: 18px;
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
 }
-.title {
-    text-align: left;
-    margin-bottom: 20px;
+
+.hamburger {
+  display: none;
+  font-size: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
-.card-container {
-    display: flex;
-    justify-content: space-around;
-    gap: 20px;
-    flex-wrap: wrap;  /* 讓卡片能夠換行 */
-    margin-top: 20px;
-}
-.card {
-    background-color: #f5f5f5;
-    display: flex;
+
+/* 手機版調整 */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: row;
+    padding: 10px 15px;
+  }
+
+  .nav-links {
+    display: none;
     flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    width: 250px;
-    padding: 10px;
-    border-radius: 12px;  /* 圓角效果 */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);  /* 加入陰影 */
-    margin-bottom: 30px;
+    background-color: #fdeef6;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
 }
+
+/*背景1*/
+.set {
+  background-image: url("images/背景圖1.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  /* 全螢幕 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*  垂直置中 */
+}
+
+.ask form {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Distribute evenly */
+  gap: 20px;
+  background-color: rgba(255, 255, 255, 0.65);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 900px;
+}
+
+.tab {
+  grid-column: span 4;
+  display: flex;
+  justify-content: flex-start;
+  gap: 8px;
+}
+
+.tab-btn {
+  padding: 6px 18px;
+  border: none;
+  background-color: #f0f0f0;
+  color: #333;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.tab-btn.active {
+  background-color: #5335fc;
+  color: white;
+}
+
+.form-content {
+  display: none;
+  grid-column: span 4;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  width: 100%;
+}
+
+.form-content.active {
+  display: grid;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group select {
+  background: #fadafd;
+  color: #272626;
+  border: 1px solid #7e7c7c;
+  padding: 15px;
+  border-radius: 15px;
+  font-size: 16px;
+  width: 100%;
+}
+
+.form-group.full-width {
+  grid-column: span 4;
+  text-align: right;
+}
+
+/* Ensure button is visible and has enough space */
+.form-group.full-width button {
+  display: block;
+  width: 100%;
+  background-color: #5335fc;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  box-sizing: border-box; /* Ensure proper width and padding */
+}
+
+
+  @media (max-width: 768px) {
+    .ask form {
+      grid-template-columns: 1fr; /* Stack the elements in one column */
+    }
+  
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      width: 100%; /* Ensure that form groups take up the entire width */
+    }
+  
+    /* Ensure inputs, selects, and date range elements occupy full width */
+    .date-range input,
+    .form-group input,
+    .form-group select {
+      width: 100%;
+    }
+    
+    .form-group.full-width button {
+      width: 100%; /* Ensure the button fills the full width */
+      padding: 12px;
+      font-size: 16px;
+    }
+  
+  .us img {
+    width: 90%;
+    /* 在小螢幕上更小 */
+  }
+
+  .scroll-gallery img {
+    width: 200px;
+  }
+}
+
+/* 日期選擇器外框 */
+.ui-datepicker {
+  background: #fff;
+  padding: 15px;
+  border-radius: 12px;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  outline: none;
+  z-index: 9999 !important;
+}
+
+/* 上方月份與左右箭頭 */
+.ui-datepicker-header {
+  background: #fadafd;
+  color: #272626;
+  padding: 10px;
+  font-weight: bold;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+/* 星期標題 */
+.ui-datepicker th {
+  color: #5335fc;
+  font-weight: 600;
+  padding: 5px;
+}
+
+/* 日期格子 */
+.ui-datepicker td a {
+  text-align: center;
+  padding: 8px;
+  display: block;
+  background-color: #f0f0f0;
+  color: #333;
+  border-radius: 6px;
+}
+
+/* 滑過 */
+.ui-datepicker td a:hover {
+  background-color: #c3b2ff;
+  color: white;
+}
+
+/* 今天日期 */
+.ui-datepicker .ui-state-highlight {
+  background: #5335fc !important;
+  color: white !important;
+}
+
+/* 提示文字變深灰色 */
+input::placeholder,
+select::placeholder {
+  color: #666666;
+}
+
+/* 移除黑色邊框 */
+input:focus,
+select:focus {
+  outline: none;
+  box-shadow: none;
+  border: 1px solid #b39ddb;
+  /* 紫色邊框 */
+}
+
+.date-range {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px; /* 控制欄位之間的間距 */
+  width: 100%;
+  align-items: center;
+}
+
+.date-range input {
+  flex: 1;
+  max-width: 45%; /* 確保每個輸入框的寬度不會過大 */
+}
+
+.date-range span {
+  font-size: 16px;
+  color: #272626;
+  align-self: center; /* 確保「至」字垂直居中 */
+}
+
+@media (max-width: 768px) {
+  .date-range {
+    flex-direction: column; /* 在小螢幕上垂直排列 */
+    gap: 10px; /* 更小的間隙 */
+  }
+
+  .date-range input {
+    max-width: 100%; /* 確保在小螢幕上欄位寬度佔滿 */
+  }
+}
+
+
+
+/*關於我們*/
+.us {
+  display: flex;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  margin-left: 200px;
+  margin-right: 50px;
+}
+
+.us img {
+  max-width: 100%;
+  width: 200px;
+  height: 280px;
+  /*  設定想要的高度 */
+  object-fit: cover;
+  /* 裁切圖片符合寬高，避免變形 */
+  display: block;
+  margin: 0 auto;
+}
+
+.about {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  padding: 40px;
+  background-color: white;
+}
+
+.about img {
+  width: 200px;
+  height: 280px;
+  object-fit: cover;
+}
+
+.about-text {
+  max-width: 400px;
+  margin-left: 120px;
+}
+
+.about-text h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.about-text p {
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+  .about {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about img {
+    width: 100%;
+    max-width: 200px;
+    margin-bottom: 20px;
+  }
+
+  .about-text {
+    max-width: 90%;
+  }
+
+  .about-text h2 {
+    font-size: 24px;
+  }
+
+  .about-text p {
+    font-size: 16px;
+    padding: 0 10px;
+  }
+}
+
+/*最新消息*/
+.new {
+  color: black;
+  height: 60vh;
+  background-color: white;
+  background-position: center;
+  font-size: 18px;
+}
+
+.section-title {
+  font-size: 26px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.section-title.news::before {
+  content: "📢";
+}
+
+.section-title.hot::before {
+  content: "🔥";
+}
+
+.carousel {
+  position: relative;
+  width: 90%;
+  margin: auto;
+  overflow: hidden;
+}
+
+.scroll-gallery {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  padding: 10px 20px;
+}
+
+.scroll-gallery img {
+  width: 300px;
+  /* 縮小圖片寬度 */
+  height: auto;
+  margin: 20px 10px;
+  /* 左右加間距（中間會有空隙） */
+  border-radius: 10px;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+}
+
+.carousel button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.carousel .prev {
+  left: 0;
+}
+
+.carousel .next {
+  right: 0;
+}
+
+/*人氣推薦*/
+.re {
+  color: black;
+  height: 100vh;
+  background-color: #fdeef6;
+  background-position: center;
+  font-size: 18px;
+}
+
+.title {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.card-container {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+  flex-wrap: wrap;
+  /* 讓卡片能夠換行 */
+  margin-top: 20px;
+}
+
+.card {
+  background-color: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 250px;
+  padding: 10px;
+  border-radius: 12px;
+  /* 圓角效果 */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  /* 加入陰影 */
+  margin-bottom: 30px;
+}
+
 .card h3 {
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
 }
 
 .card p {
-    margin: 5px 0;
-    color: #666;
+  margin: 5px 0;
+  color: #666;
 }
+
 .card img {
-    width: 100%;
-    height: auto;
-    background-color: #f0f0f0;
-    max-height: 250px;  /* 設定最大高度 */
-    border-radius: 8px;  /* 圓角效果 */
-    object-fit: cover;  /* 確保圖片不會拉伸 */    
+  width: 100%;
+  height: auto;
+  /*250*/
+  max-height: 180px;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  /* 圓角效果 */
+  object-fit: cover;
+  /* 確保圖片不會拉伸 */
 }
 
 .price {
-    font-weight: bold;
-    color: #333;
-    margin-top: 10px;  /* 讓價格有適當的空隙 */
-    font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-top: 10px;
+  /* 讓價格有適當的空隙 */
+  font-size: 18px;
 }
 
 .coin {
-    color: #999;
-    font-size: 14px;
-    margin-top: 5px;
+  color: #999;
+  font-size: 14px;
+  margin-top: 5px;
 }
 
-.button{
-    display: inline-block;
-    padding: 8px 16px;
-    background-color: #4CAF50;
-    color: white;
-    border-radius: 8px;
-    text-decoration: none;
-    font-size: 14px;
-    text-align: center;
-    margin-top: 10px;
-    transition: background-color 0.3s ease;
+.button {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
 }
+
 .button:hover {
-    background-color: #45a049;  /* 鼠標懸停時改變顏色 */
+  background-color: #45a049;
+  /* 鼠標懸停時改變顏色 */
 }
+
 .more {
-    text-align: right;
-    margin-right: 20px;
+  text-align: right;
+  margin-right: 20px;
 }
-.letter{
-    background-color: #85929e;
-    color:white;
-    padding:60px 0;
-    display:flex;
+
+@media (max-width: 768px) {
+  .card-container {
+    justify-content: center;
+    /* 小螢幕上置中卡片 */
     flex-direction: column;
     align-items: center;
+    gap: 20px;
+  }
+
+  .card {
+    width: 90%;
+    /* 卡片佔螢幕寬度 */
+    max-width: 350px;
+  }
+
+  .card img {
+    max-height: 200px;
+    object-fit: cover;
+  }
+
+  .card p,
+  .card h3,
+  .card a {
+    text-align: center;
+    word-break: break-word;
+  }
+
+  .section-title {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .more {
+    text-align: center;
+    margin-right: 0;
+  }
 }
-.letter p{
-    margin-bottom: 20px;
+
+.letter {
+  background-color: #85929e;
+  color: white;
+  padding: 60px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.letter input, .letter button{
-    background-color: transparent;
-    color:white;
-    border:1px soild #949d9a;
-    padding: 10px;
-    border-radius: 5px;
+
+.letter p {
+  margin-bottom: 20px;
 }
-.letter input{
-    width:200px;
-    margin-right: 15px;
+
+.letter input,
+.letter button {
+  background-color: transparent;
+  color: white;
+  border: 1px solid #949d9a;
+  padding: 10px;
+  border-radius: 5px;
 }
-.letter button{
-    width:80px;
-    cursor:pointer;
+
+.letter input {
+  width: 200px;
+  margin-right: 15px;
 }
-input::placeholder{
-    color:#DDDDDD;
+
+.letter button {
+  width: 80px;
+  cursor: pointer;
 }
-footer{
-    background-color: #5d6d7e;
-    color:white;
-    height:60px;
-    display:flex;
-    justify-content: center;
+
+input::placeholder {
+  color: #DDDDDD;
+}
+
+@media (max-width: 768px) {
+  .letter {
+    background-color: #85929e;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    font-size: 16px;
+    text-align: center;
+    margin-top: 40px;
+    z-index: 1;
+    position: relative;
+  }
+
+  .letter p {
+    margin-bottom: 15px;
+  }
+
+  .letter input,
+  .letter button {
+    width: 100%;
+    max-width: 300px;
+    margin: 5px auto;
+  }
 }
 
-.login .us{
-    background-color: skyblue;
+main {
+  min-height: calc(100vh - 80px);
 }
 
+footer {
+  background-color: #5d6d7e;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+  font-size: 16px;
+}
 
-
-
-
+@media (max-width: 768px) {
+  footer {
+    flex-direction: column;
+    font-size: 14px;
+    padding: 10px 0;
+    text-align: center;
+  }
+}
