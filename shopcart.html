@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>購物車</title>
+    <link rel="stylesheet" href="shopcart.css">
+</head>
+<body>
+    <div class="cart-container">
+        <h1>購物車</h1>
+
+        <div id="cart-items">
+            <div class="cart-item">
+                <div class="item-image">
+                    <img src="images/japan.jpg" alt="商品圖片">
+                </div>
+                <div class="item-details">
+                    <div class="item-name">北海道滑雪三日遊</div>
+                    <div class="item-options">日期:XX/XX</div>
+                    <div class="item-quantity">
+                        <label class="quantity-label" for="quantity-1">數量：</label>
+                        <input type="number" id="quantity-1" class="quantity-input" value="1" min="1">
+                    </div>
+                </div>
+                <div>
+                    <div class="item-price">單價：NT$ 100</div>
+                    <div class="item-subtotal">小計：NT$ 100</div>
+                    <button class="remove-button" data-item-id="1">移除</button>
+                </div>
+            </div>
+
+            <div class="cart-item">
+                <div class="item-image">
+                    <img src="images/Namsan.jpg" alt="商品圖片">
+                </div>
+                <div class="item-details">
+                    <div class="item-name">韓國釜山溫泉七日遊</div>
+                    <div class="item-options">日期:XX/XX</div>
+                    <div class="item-quantity">
+                        <label class="quantity-label" for="quantity-2">數量：</label>
+                        <input type="number" id="quantity-2" class="quantity-input" value="2" min="1">
+                    </div>
+                </div>
+                    <div>
+                        <div class="item-price">單價：NT$ 100</div>
+                        <div class="item-subtotal">小計：NT$ 100</div>
+                        <button class="remove-button" data-item-id="2">移除</button>
+                    </div>
+                </div>

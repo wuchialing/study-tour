@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://use.typekit.net/1ec201cfe067d4320b2a31edcea78046e06baaf5.css">
+    <link rel="stylesheet" href="login.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <title>登入/註冊</title>
+</head>
+
+<body>
+    
+    <div class="container" id="container">
+        <div class="back-icons">
+            <a href="index.html" class="icon"><i class="fa-solid fa-house" ></i></a></div>    
+        <div class="form-container sign-up">
+            <form>
+                <h1>Create Account</h1>
+                <div class="social-icons">
+                    <a href="#" class="icon"><i class="fa-brands fa-google"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-apple"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-line"></i></a>
+                </div>
+                <span>或使用電子郵件註冊</span>
+                <input type="text" placeholder="Name">
+                <input type="email" placeholder="Email">
+                <input type="password" placeholder="Password">
+                <button>Sign Up</button>
+            </form>
+        </div>
+        <div class="form-container sign-in">
+            <form>
+                <h1>Sign In</h1>
+                <div class="social-icons">
+                    <a href="#" class="icon"><i class="fa-brands fa-google"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-apple"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-line"></i></a>
+                </div>
+                <span>或使用電子郵件密碼</span>
+                <input type="email" placeholder="Email">
+                <input type="password" placeholder="Password">
+                <a href="#">忘記密碼?</a>
+                <button>Sign In</button>
+            </form>
+        </div>
+        <div class="toggle-container">
+            <div class="toggle"></div>
+            <div class="toggle-panel toggle-left">
+                <h1>Welcome Back!</h1>
+                <p>輸入您的個人資訊以使用網站的所有功能</p>
+                <button class="hidden" id="login">登入</button>
+            </div>
+            <div class="toggle-panel toggle-right">
+                <h1>Hello, Friend!</h1>
+                <p>註冊個人資料以使用網站的所有功能</p>
+                <button class="hidden" id="register">註冊</button>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>
