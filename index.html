@@ -92,22 +92,21 @@
     }
 
     .card {
-      border: none;
-      border-radius: 1rem;
-      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+      border-radius: 15px;
+      overflow: hidden;
       transition: transform 0.3s ease;
-      height: 100%;
     }
-
     .card:hover {
       transform: translateY(-5px);
     }
-
+    .recommend-title {
+      font-weight: bold;
+      font-size: 1.5rem;
+      color: #e60073;
+    }
     .card-img-top {
       height: 240px;
       object-fit: cover;
-      border-top-left-radius: 1rem;
-      border-top-right-radius: 1rem;
     }
 
     footer {
@@ -295,35 +294,57 @@
 
 
 
-  <section class="container my-5">
-    <h2 class="section-title"><i class="fas fa-bullhorn me-2 text-danger"></i>最新消息 The news</h2>
-    <div id="newsCarousel" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <div class="d-flex gap-3">
-            <img src="images/熱氣球.jpg" class="img-fluid rounded w-33" alt="1">
-            <img src="images/鐵路.jpg" class="img-fluid rounded w-33" alt="2">
-            <img src="images/海.jpg" class="img-fluid rounded w-33" alt="3">
+  <div class="container py-4">
+    <h2 class="recommend-title">🔥人氣活動推薦 Recommend</h2>
+    <div class="row mt-4">
+      <!-- 北海道卡片 -->
+      <div class="col-md-4 mb-3">
+        <a href="product.html?id=hokkaido3" class="text-decoration-none text-dark">
+          <div class="card shadow h-100">
+            <img src="images/japan.jpg" class="card-img-top" alt="北海道">
+            <div class="card-body text-center">
+              <h5 class="card-title">北海道滑雪三日遊</h5>
+              <p class="mb-1">▼ 雪飄幣</p>
+              <p class="fw-bold">TWD$36,000 起</p>
+              <button class="btn btn-success btn-sm">🛒 加入購物車</button>
+              <p class="mt-2">🥞 會員加碼獲得區區幣 300 枚</p>
+            </div>
           </div>
-        </div>
-        <div class="carousel-item">
-          <div class="d-flex gap-3">
-            <img src="images/雲海.jpg" class="img-fluid rounded w-33" alt="4">
-            <img src="images/其他1.jpg" class="img-fluid rounded w-33" alt="5">
-            <img src="images/其他2.jpg" class="img-fluid rounded w-33" alt="6">
-          </div>
-        </div>
+        </a>
       </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#newsCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon"></span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#newsCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon"></span>
-      </button>
+      <!-- 韓國卡片 -->
+      <div class="col-md-4 mb-3">
+        <a href="product.html?id=korea7" class="text-decoration-none text-dark">
+          <div class="card shadow h-100">
+            <img src="images/Namsan.jpg" class="card-img-top" alt="釜山">
+            <div class="card-body text-center">
+              <h5 class="card-title">韓國釜山溫泉七日遊</h5>
+              <p class="mb-1">▼ 湯泉幣</p>
+              <p class="fw-bold">TWD$32,000 起</p>
+              <button class="btn btn-success btn-sm">🛒 加入購物車</button>
+              <p class="mt-2">🥞 會員加碼獲得區區幣 280 枚</p>
+            </div>
+          </div>
+        </a>
+      </div>
+      <!-- 東京卡片 -->
+      <div class="col-md-4 mb-3">
+        <a href="product.html?id=tokyo5" class="text-decoration-none text-dark">
+          <div class="card shadow h-100">
+            <img src="images/tokyo.jpg" class="card-img-top" alt="東京">
+            <div class="card-body text-center">
+              <h5 class="card-title">日本東京賞櫻五日遊</h5>
+              <p class="mb-1">▼ 櫻舞幣</p>
+              <p class="fw-bold">TWD$26,000 起</p>
+              <button class="btn btn-success btn-sm">🛒 加入購物車</button>
+              <p class="mt-2">🥞 會員加碼獲得區區幣 240 枚</p>
+            </div>
+          </div>
+        </a>
+      </div>
     </div>
-
-  </section>
-
+  </div>
+  
   <section class="container my-5">
     <h2 class="section-title"><i class="fas fa-fire me-2 text-danger"></i>人氣活動推薦 Recommend</h2>
     <div class="row row-cols-1 row-cols-md-3 g-4 align-items-stretch">
@@ -335,6 +356,7 @@
               <i class="far fa-heart fa-lg text-danger"></i>
             </button>
           </div>
+          <a href="product.html?id=hokkaido3" class="text-decoration-none"></a>
           <div class="card-body text-center">
             <h5 class="card-title">北海道滑雪三日遊</h5>
             <p class="text-muted">▼ 雪飄幣</p>
@@ -357,6 +379,7 @@
               <i class="far fa-heart fa-lg text-danger"></i>
             </button>
           </div>
+          <a href="product.html?id=korea7" class="text-decoration-none"></a>
           <div class="card-body text-center">
             <h5 class="card-title">韓國釜山溫泉七日遊</h5>
             <p class="text-muted">▼ 湯泉幣</p>
@@ -471,6 +494,41 @@
       }
     });
   </script>
+  <script>
+    // 模擬資料庫資料（你可以改成讀 JSON 檔或串 API）
+    const tourData = {
+      hokkaido3: {
+        title: "北海道滑雪三日遊",
+        date: "2025/6/4~6/8",
+        location: "北海道",
+        price: "NT$15000",
+        coin: "6",
+        mainImage: "hokkaido.jpg",
+      },
+      korea7: {
+        title: "韓國釜山溫泉七日遊",
+        date: "2025/7/1~7/7",
+        location: "釜山",
+        price: "NT$32000",
+        coin: "14",
+        mainImage: "korea.jpg",
+      }
+    };
+  
+    const urlParams = new URLSearchParams(window.location.search);
+    const tourId = urlParams.get('id');
+    const tour = tourData[tourId];
+  
+    if (tour) {
+      document.getElementById('title').innerText = tour.title;
+      document.getElementById('date').innerText = tour.date;
+      document.getElementById('location').innerText = tour.location;
+      document.getElementById('price').innerText = tour.price;
+      document.getElementById('coin').innerText = tour.coin;
+      document.getElementById('mainImage').src = tour.mainImage;
+    }
+  </script>
+  
 
 </body>
 
